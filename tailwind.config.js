@@ -1,0 +1,58 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary':            '#000000',
+        'primary-container':  '#131b2e',
+        'on-primary':         '#ffffff',
+        'background':         '#f8f9ff',
+        'surface':            '#f8f9ff',
+        'surface-low':        '#eff4ff',
+        'surface-container':  '#e5eeff',
+        'on-surface':         '#0b1c30',
+        'on-surface-variant': '#45464d',
+        'outline':            '#76777d',
+        'outline-variant':    '#c6c6cd',
+        'secondary':          '#515f74',
+        'secondary-container':'#d5e3fd',
+        'on-secondary-container': '#57657b',
+        'signal-orange':      '#d95f00',
+        'signal-red':         '#ba1a1a',
+        'signal-green':       '#15803d',
+        'signal-amber':       '#d97706',
+      },
+      fontFamily: {
+        sans: ['Public Sans', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        'display':    ['36px', { lineHeight: '1.1', fontWeight: '800' }],
+        'headline-lg':['24px', { lineHeight: '1.3', fontWeight: '700' }],
+        'headline-md':['20px', { lineHeight: '1.4', fontWeight: '600' }],
+        'headline-sm':['16px', { lineHeight: '1.4', fontWeight: '600' }],
+        'body-lg':    ['16px', { lineHeight: '1.6', fontWeight: '400' }],
+        'body-md':    ['14px', { lineHeight: '1.5', fontWeight: '400' }],
+        'body-sm':    ['13px', { lineHeight: '1.4', fontWeight: '400' }],
+        'label-lg':   ['13px', { lineHeight: '1', letterSpacing: '0.04em', fontWeight: '700' }],
+        'label-md':   ['12px', { lineHeight: '1', letterSpacing: '0.05em', fontWeight: '600' }],
+        'label-sm':   ['11px', { lineHeight: '1', letterSpacing: '0.08em', fontWeight: '700' }],
+      },
+      borderRadius: {
+        DEFAULT: '0.125rem',
+        sm:      '0.125rem',
+        md:      '0.25rem',
+        lg:      '0.375rem',
+        xl:      '0.5rem',
+        full:    '9999px',
+      },
+      boxShadow: {
+        'none':  'none',
+        'lift':  '0 2px 8px rgba(0,0,0,0.08)',
+        'modal': '0 8px 32px rgba(0,0,0,0.16)',
+      },
+    },
+  },
+  plugins: [],
+}

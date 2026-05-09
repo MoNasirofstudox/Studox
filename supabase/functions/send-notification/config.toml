@@ -1,0 +1,11 @@
+# Edge function config for send-notification
+# Supabase will invoke this on the cron schedule below
+
+[functions.send-notification]
+verify_jwt = false
+
+# Drain email queue every 2 minutes
+# Supabase scheduled functions (available from CLI v1.171+)
+# Deploy with: supabase functions deploy send-notification
+[functions.send-notification.schedule]
+cron = "*/2 * * * *"

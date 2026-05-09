@@ -1,0 +1,31 @@
+# Supabase project config
+# Run: supabase link --project-ref your-project-ref
+
+[functions.send-notification]
+verify_jwt = false   # Called by cron (no JWT)
+
+[functions.paystack-webhook]
+verify_jwt = false   # Called by Paystack (no JWT)
+
+# ─── Cron: drain email queue every 2 minutes ─────────────────
+# Add this in Supabase dashboard → Database → Extensions → pg_cron
+# Then in SQL editor:
+#
+# select cron.schedule(
+#   'drain-email-queue',
+#   '*/2 * * * *',
+#   $$
+#     select net.http_post(
+#       url := current_setting('app.supabase_url') || '/functions/v1/send-notification',
+#       headers := jsonb_build_object(
+#         'Authorization', 'Bearer ' || current_setting('app.service_role_key'),
+#         'Content-Type', 'application/json'
+#       ),
+#       body := '{}'::jsonb
+#     );
+#   $$
+# );
+#
+# Or use Supabase Edge Function schedules (GA in 2025):
+# [functions.send-notification.cron]
+# schedule = "*/2 * * * *"
