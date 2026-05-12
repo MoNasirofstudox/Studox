@@ -44,7 +44,7 @@ export function AuthProvider({ children }) {
       .select('id, email, first_name, last_name, global_role, is_active')
       .eq('id', userId)
       .maybeSingle()
-    console.log('[Auth] loadPerson result:', data, 'error:', error)
+      console.log('[Auth] loadPerson result:', data, 'error:', JSON.stringify(error))
     setPerson(data ?? null)
     setLoading(false)
   }
